@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Comment;
-use App\Post;
 use Illuminate\Http\Request;
+use App\User;
 
-class CommentController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $comments = Comment::paginate(7);
-        return view('comments.index', compact("comments"));
+
+        $users = User::all();
+        return view('users.index', compact('users'));
+
     }
 
     /**
@@ -37,11 +38,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        $post = Post::findOrFail($request->post_id);
-        $comment = new Comment($request->all());
-        $comment->user_id = $request->user()->id;
-        $comment->post_id = $post->id;
-        $comment->save();
+        //
     }
 
     /**
@@ -52,40 +49,49 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.show',compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *
      */
-    public function edit($id)
+    public function edit($user, Request $request)
     {
-        //
+
+        $user = User::findOrFail($user);
+
+            return view('users.edit', compact("user"));
+
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $user)
     {
-        //
-    }
+        $formData = $request->all();
+        $user = User::findOrFail($user);
+            $user->update($formData);
+
+            return redirect('users');
+        }
+
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *
+     *
      */
-    public function destroy($id)
+    public function destroy($user)
     {
-        //
+        $user->delete();
+        return redirect('users');
     }
 }
