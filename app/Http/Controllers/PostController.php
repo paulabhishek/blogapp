@@ -20,7 +20,7 @@ class PostController extends Controller
     public function index()
     {
 
-        $posts = Post::paginate(3);
+        $posts = Post::paginate(6);
         $comments = Comment::all();
         return view('posts.index', compact('posts'));
 
