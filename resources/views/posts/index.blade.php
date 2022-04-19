@@ -2,36 +2,22 @@
 @section('body')
 <h1>All Posts</h1>
 @foreach ($posts as $post)
-{{--    id: {{ $post->id}}<br>--}}
-{{--    Title: {{ $post->title}}<br>--}}
-{{--    Body: {{$post->author->name}}--}}
-{{--    <a href="{{ url('/posts/')}}/{{$post->id }}">See more</a><br>--}}
 
-
-
-{{--<div class="card">--}}
-{{--    <h5 class="card-header">{{ $post->title}}</h5>--}}
-{{--    <div class="card-body">--}}
-{{--        <h5 class="card-title">{{ $post->title}}</h5>--}}
-{{--        <p class="card-text">{{$post->author->name}}</p>--}}
-{{--        <a href="{{ url('/posts/')}}/{{$post->id }}" class="btn btn-primary">Read more</a>--}}
-{{--    </div>--}}
-{{--</div>--}}
-
-
-<div class="card text-center">
-    <div class="card-header">
-        Category
+<div class="card">
+    <div class="card-header mb-0 h3">
+        {{$post->title}}
     </div>
     <div class="card-body">
-        <h5 class="card-title">{{$post->title}} by author {{$post->author->name}}</h5>
-        <p class="card-text">{{$post->body}}</p>
-        <a href="{{ url('/posts/')}}/{{$post->id }}" class="btn btn-primary">Open</a>
+        <h5 class="card-title mb-0 h6">Author: {{$post->author->name}}</h5>
+        <p class="card-text mb-0 h5 mt-3">{{$post->body}}</p>
+        <a href="{{ url('/posts/')}}/{{$post->id }}" class="btn btn-secondary mt-3">Open</a>
     </div>
     <div class="card-footer text-muted">
-        2 days ago
+        Created: {{\App\Http\Controllers\PostController::time_elapsed_string($post->created_at)}}
+{{--        time_elapsed_string('2013-05-01 00:22:35', true);--}}
+
     </div>
-</div>
+</div><br>
 @endforeach
 @endsection
 

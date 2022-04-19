@@ -24,8 +24,8 @@
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 text-end">
 
-                <li><a href="#" class="nav-link px-2 link-dark mb-0 h4 text-dark">Authors</a></li>
-                <li><a href="#" class="nav-link px-2 link-secondary mb-0 h4 text-dark">Admin</a></li>
+                <li><a href="{{ url('/')}}" class="nav-link px-2 link-dark mb-0 h4 text-dark">Authors</a></li>
+                <li><a href="{{ url('/')}}" class="nav-link px-2 link-secondary mb-0 h4 text-dark">Admin</a></li>
             </ul>
             <div class="col-md-3 text-end">
                 <button type="button" class="btn btn-outline-secondary me-2">Login</button>
