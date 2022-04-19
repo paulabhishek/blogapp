@@ -1,4 +1,10 @@
+@extends('welcome')
+@section('body')
 <h1>Post#{{$post->id}}</h1>
+@isset($article->file)
+    <img src="{{ asset('storage/' . $post->file) }}"
+         width="100px" height="100px"><br>
+@endisset
 ID: {{$post->id}}
 name: {{ $post->title}}<br>
 Description: {{ $post->body}}<br><br><br>
@@ -26,3 +32,4 @@ Description: {{ $post->body}}<br><br><br>
 Name: {{($commenta->user->name)}}<br>
 Comment: {{$commenta->comment}}<br><br>
 @endforeach
+@endsection

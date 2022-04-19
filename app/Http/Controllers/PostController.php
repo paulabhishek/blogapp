@@ -52,8 +52,13 @@ class PostController extends Controller
     {
         $post = new Post($request->all());
       $post->author_id = $request->user()->id;
-
-        $post->save();
+      $post->save();
+        if ($request->hasFile('file') &&
+            $request->file('file')->isValid()) {
+            $path = $request->file->storePublicly('posts', './public');
+            $post->file =$path;
+            $post->save();
+        }
 
 
         return redirect('posts');
