@@ -10,7 +10,7 @@
     <div class="card-body">
         <h5 class="card-title mb-0 h6">Author: {{$post->author->name}}</h5>
         <p class="card-text mb-0 h5 mt-3">{{$post->body}}</p>
-        <a href="{{ url('/posts/')}}/{{$post->id }}" class="btn btn-secondary mt-3">Open</a>
+        <a href="{{ url('/posts/')}}/{{$post->id }}" class="btn btn-secondary mt-3 d-grid btn-sm">Open</a>
     </div>
     <div class="card-footer text-muted">
         Created: {{\App\Http\Controllers\PostController::time_elapsed_string($post->created_at)}}
@@ -18,6 +18,8 @@
 
     </div>
 </div><br>
+
 @endforeach
+{{ $posts->links() }}
 @endsection
 

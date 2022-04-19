@@ -23,14 +23,18 @@
             </a>
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 text-end">
-
-                <li><a href="{{ url('/posts/create')}}" class="nav-link px-2 link-dark mb-0 h4 text-dark">Authors</a></li>
-                <li><a href="{{ url('/users')}}" class="nav-link px-2 link-secondary mb-0 h4 text-dark">Admin</a></li>
+                <li><a href="{{ url('/')}}" class="nav-link px-2 link-dark mb-0 h4 text-dark">Authors</a></li>
+                <li><a href="{{ url('/')}}" class="nav-link px-2 link-secondary mb-0 h4 text-dark">Admin</a></li>
             </ul>
-            <div class="col-md-3 text-end">
-                <button type="button" class="btn btn-outline-secondary me-2">Login</button>
-                <button type="button" class="btn btn-secondary">Sign-up</button>
-            </div>
+            @if(Auth::guest())
+                <div class="col-md-3 text-end">
+                    <a href="{{ url('/login')}}" class="btn btn-outline-secondary me-2">Login</a>
+                    <a href="{{ url('/register')}}" class="btn btn-secondary">Sign-up</a>
+                </div>
+            @else
+
+            @endif
+
         </header>
         <div class="container-fluid text-center">
             <div class="row content">
@@ -40,14 +44,13 @@
             </div>
         </div>
     </div>
-        <footer class="bg-light text-center text-lg-start">
+        <footer class="bg-light fixed-bottom ">
             <!-- Copyright -->
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                © 2022 Copyright:
-                <a class="text-dark" href="https://https://avincentpaul.scweb.ca/blogapp/">Abhishek and Abdullah</a>
+            <div class="text-center p-3 mb-0 h5" style="background-color: #6c757d">
+                Made by
+                <a class="text-dark" href="https://www.linkedin.com/in/paul-abhishek17/">Abhishek</a> and <a class="text-dark" href="https://www.linkedin.com/in/abdullahalidev/">Abdullah</a> © 2022 Copyright
             </div>
             <!-- Copyright -->
         </footer>
-
     </body>
 </html>

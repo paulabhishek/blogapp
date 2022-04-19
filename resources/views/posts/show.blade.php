@@ -32,4 +32,6 @@ Description: {{ $post->body}}<br><br><br>
 Name: {{($commenta->user->name)}}<br>
 Comment: {{$commenta->comment}}<br><br>
 @endforeach
+
+@endsection
 @endsection
