@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-        <footer class="bg-light fixed-bottom ">
+        <footer class="bg-light navbar-static-bottom">
             <!-- Copyright -->
             <div class="text-center p-3 mb-0 h5" style="background-color: #6c757d">
                 Made by
@@ -52,5 +52,6 @@
             </div>
             <!-- Copyright -->
         </footer>
+
     </body>
 </html>
