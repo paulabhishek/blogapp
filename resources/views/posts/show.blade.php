@@ -1,7 +1,7 @@
 @extends('welcome')
 @section('body')
 <h1>Post#{{$post->id}}</h1>
-@isset($article->file)
+@isset($post->file)
     <img src="{{ asset('storage/' . $post->file) }}"
          width="100px" height="100px"><br>
 @endisset
@@ -34,4 +34,4 @@ Comment: {{$commenta->comment}}<br><br>
 @endforeach
 
 @endsection
-@endsection
+

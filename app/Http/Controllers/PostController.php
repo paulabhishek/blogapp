@@ -55,7 +55,7 @@ class PostController extends Controller
       $post->save();
         if ($request->hasFile('file') &&
             $request->file('file')->isValid()) {
-            $path = $request->file->storePublicly('posts', './public');
+            $path = $request->file->storePublicly('images', 'public');
             $post->file =$path;
             $post->save();
         }
