@@ -32,7 +32,6 @@
                     <a href="{{ url('/register')}}" class="btn btn-secondary">Sign-up</a>
                 </div>
             @else
-
             @endif
 
         </header>

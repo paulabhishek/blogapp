@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PostController@index')->name('post.index');
 
 Route::resource('/posts','PostController');
-Route::resource('/comments','CommentController');
+Route::resource('comments','CommentController');
 
 Auth::routes();
 
