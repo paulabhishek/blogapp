@@ -82,9 +82,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
-    {
+    public function edit($id, Request $request){
+        $post = Post::findOrFail($id);
 
+        return view('posts.edit', compact("post"));
     }
 
 
@@ -97,7 +98,12 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $formData = $request->all();
+        $post = Post::findOrFail($id);
+        $post->update($formData);
+        $uid = $post->user_id;
+
+        return redirect('users/' . $uid);
     }
 
     /**
@@ -109,11 +115,12 @@ class PostController extends Controller
     public function destroy(Request $request,$id)
     {
         $post = Post::find($id);
-        if($post && ($post->author_id == $request->user()->id || $request->user()->isAdmin()))
+        $uid = $post->user_id;
+        if($post && ($post->auser_id == $request->user()->id || $request->user()->isAdmin()))
         {
             $post->delete();
         }
-        return redirect('/posts');
+        return redirect('users/' . $uid);
     }
 
 public static function time_elapsed_string($datetime, $full = false) {
