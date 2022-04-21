@@ -1,4 +1,5 @@
-
+@extends('welcome')
+@section('body')
     <h1>Edit User</h1>
 
     <form method="POST" action="
@@ -14,3 +15,4 @@
         </select><br>
         <input type="submit" value="Update"><br>
     </form>
+@endsection

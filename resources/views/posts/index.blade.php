@@ -8,7 +8,7 @@
         {{$post->title}}
     </div>
     @isset($post->file)
-        <img class="card-img-top" src="{{ asset('storage/' . $post->file) }}"  height="50px" alt="Card image cap">
+        <img class="card-img-top" src="{{ asset('storage/' . $post->file) }}"  height="200px" alt="Card image cap">
     @endisset
     <div class="card-body">
         <h5 class="card-title mb-0 h5">Author: {{$post->author->name}}</h5>
