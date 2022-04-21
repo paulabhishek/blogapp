@@ -50,6 +50,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        $user->posts->author_id = $user->id;
         return view('users.show',compact('user'));
     }
 

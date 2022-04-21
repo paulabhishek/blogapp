@@ -51,7 +51,7 @@ class PostController extends Controller
     public function store(PostFormRequest $request)
     {
         $post = new Post($request->all());
-      $post->author_id = $request->user()->id;
+      $post->user_id = $request->user()->id;
       $post->save();
         if ($request->hasFile('file') &&
             $request->file('file')->isValid()) {

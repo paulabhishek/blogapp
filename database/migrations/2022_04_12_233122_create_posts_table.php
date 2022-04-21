@@ -20,8 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('body');
 
             $table->bigInteger('author_id')->unsigned();
-            $table->foreign('author_id')
-                ->references('id')->on('users')
+            $table->foreign('author_id')->on('users')
                 ->onDelete('cascade');
         });
     }

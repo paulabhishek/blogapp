@@ -11,7 +11,7 @@
         <img class="card-img-top" src="{{ asset('storage/' . $post->file) }}"  height="200px" alt="Card image cap">
     @endisset
     <div class="card-body">
-        <h5 class="card-title mb-0 h5">Author: {{$post->author->name}}</h5>
+        <h5 class="card-title mb-0 h5">Author: {{$post->user->name}}</h5>
         <a href="{{ url('/posts/')}}/{{$post->id }}" class="btn btn-secondary mt-3 d-grid btn-md">Open</a>
     </div>
     <div class="card-footer text-muted">
