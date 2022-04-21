@@ -23,7 +23,7 @@
             </a>
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 text-end">
-                <li><a href="{{ url('/posts/create')}}" class="nav-link px-2 link-dark mb-0 h4 text-dark">Authors</a></li>
+                <li><a href="{{ url('/posts/create')}}" class="nav-link px-2 link-dark mb-0 h4 text-dark">Author</a></li>
                 <li><a href="{{ url('/users')}}" class="nav-link px-2 link-secondary mb-0 h4 text-dark">Admin</a></li>
             </ul>
             @if(Auth::guest())
@@ -32,6 +32,21 @@
                     <a href="{{ url('/register')}}" class="btn btn-secondary">Sign-up</a>
                 </div>
             @else
+                <a id="navbarDropdown" class="nav-link dropdown-toggle mb-0 h5 text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }}
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item mb-0 h5" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
             @endif
 
         </header>

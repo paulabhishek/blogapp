@@ -48,19 +48,16 @@
 
 @foreach($post->comments as $commenta )
 
-@endforeach
-
-
-                    <div class="commented-section mt-2">
+                        <div class="commented-section mt-2">
                         <div class="d-flex flex-row align-items-center commented-user">
                             <h5 class="mr-2">{{($commenta->user->name)}}</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">4 hours ago</span>
                         </div>
                         <div class="comment-text-sm"><span>{{$commenta->comment}}</span></div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
-
 @endsection
 
