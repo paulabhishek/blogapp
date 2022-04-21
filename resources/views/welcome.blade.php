@@ -53,7 +53,12 @@
         <div class="container-fluid text-center">
             <div class="row content">
                 <div class="col-sm-10 text-left">
-                    @yield('body')
+{{--                    @yield('body')--}}
+                    @if(View::hasSection('body'))
+                        @yield('body')
+                    @else
+                       You are not an Admin
+                    @endif
                 </div>
             </div>
         </div>
