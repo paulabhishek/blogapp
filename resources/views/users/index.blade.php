@@ -12,7 +12,8 @@
             <div class="card-body text-dark border border-2 ">
                 <h5 class="card-title">Name: {{ $user->name}}</h5>
                 <p class="card-text">Email: {{$user->email}} </p>
-                Role: {{$user->role}}
+                Role: {{$user->role}}<br>
+                <a href="{{ url('/users/')}}/{{$user->id }}" class="btn btn-secondary mt-3 d-grid btn-md">Open</a>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a  type="button" class="btn btn-outline-secondary">
 
