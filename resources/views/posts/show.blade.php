@@ -41,7 +41,7 @@
                         <div class="d-flex justify-content-center row">
                             <div class="d-flex flex-column col-md-8">
                                 <div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
-                                    
+
                                 </div>
 
 <h2>Comments</h2>
@@ -53,7 +53,7 @@
 
                     <div class="commented-section mt-2">
                         <div class="d-flex flex-row align-items-center commented-user">
-                            <h5 class="mr-2">{{($commenta->user->name)}}</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">{{$commenta->created_at}}</span>
+                            <h5 class="mr-2">{{($commenta->user->name)}}</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">{{\App\Http\Controllers\PostController::time_elapsed_string($commenta->created_at, false)}}</span>
                         </div>
                         <div class="comment-text-sm"><span>{{$commenta->comment}}</span></div>
                     </div>
