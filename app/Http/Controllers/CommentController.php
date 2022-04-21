@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comment;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CommentController extends Controller
 {
@@ -42,6 +43,9 @@ class CommentController extends Controller
         $comment->user_id = $request->user()->id;
         $comment->post_id = $post->id;
         $comment->save();
+        $id = $post->id;
+
+        return redirect('posts/' . $id);
 
     }
 
